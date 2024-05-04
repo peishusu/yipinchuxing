@@ -1,0 +1,26 @@
+server:
+  port: 8084
+
+#配置nacos
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #配置服务提供者
+    sentinel:
+      transport:
+        dashboard: localhost:9091
+      web-context-unify: false
+  application:
+    name: service-price
+
+#  数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 106331
+    url: jdbc:mysql://localhost:3306/service-price?characterEncoding=utf-8&serverTimezone=GMT%2B8
+
+#logging:
+#  level:
+#    root: debug

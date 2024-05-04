@@ -1,0 +1,44 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #配置服务提供者
+    sentinel:
+      transport:
+        dashboard: localhost:9091  #设置sentinel控制台的ip和端口地址
+      datasource:
+        api-passenger-sentinel-flow-rule:
+          nacos:
+            server-addr: localhost:8848
+            dataId: api-passenger-sentinel-flow-rule
+            group-id: sentinel-group
+            data-type: json
+            rule-type: flow
+
+  application:
+    name: api-passenger
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: 106331
+
+#配置Slf4j的日志默认输出级别
+logging:
+  level:
+    root: info
+
+#超时配置
+feign:
+  client:
+    config:
+      #default 表示作用于所有客户端，也可替换default 为客户端名称，表示作用于单个客户端
+      default:
+        #单位ms
+        connect-timeout: 1000 #用于限制建立连接的时间，意思是api-passenger服务和service-verification服务建立连接的时间
+        read-timeout: 500 # 用于限制服务调用并返回响应的时间
+  sentinel:
+    enabled: true #开始feign对sentinel的支持

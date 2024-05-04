@@ -1,0 +1,74 @@
+乘客端：
+手机号：19826333069
+验证码：662833
+accessToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaG9uZSI6IjE5ODI2MzMzMDY5IiwiaWRlbnRpdHkiOiIxIiwidG9rZW5UaW1lIjoiRnJpIE1hciAyOSAxMDowMTo1NiBDU1QgMjAyNCIsInRva2VuVHlwZSI6ImFjY2Vzc1Rva2VuIn0.yT4Y8V8T5kq9f6m05iDfMHTQ_bB5ZC_k8gWKM1Yj0wU
+①
+乘客获取验证码  -> 乘客校验验证码（登录） ✔
+②
+乘客预估价格（前提是存在对应的计价规则）  ✔
+③
+乘客派单（里面包括一系列判断，比如周围2、4、5公里内查询是否存在满足条件的司机，并系统指定司机来接受订单,同时司机、乘客模拟客户端分别接受到各自对应的订单信息）✔
+
+④ 乘客付款（利用支付宝的沙箱环境、花生壳的内网穿透---网络映射）
+
+
+{
+    "depLongitude":"116.321554",
+    "depLatitude":"39.895008",
+
+    "destLongitude":"116.509709",
+    "destLatitude":"39.924239",
+    "cityCode": "110000",
+    "vehicleType": "1"
+}
+
+{
+    "code": 1,
+    "message": "success",
+    "data": {
+        "price": 183.43,
+        "cityCode": "110000",
+        "vehicleType": "1",
+        "fareType": "110000$1",
+        "fareVersion": 1
+    }
+}
+
+-------------------------------------------------------------------
+
+
+司机端：
+手机号：17825604590
+验证码：717855
+accessToken: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaG9uZSI6IjE3ODI1NjA0NTkwIiwiaWRlbnRpdHkiOiIyIiwidG9rZW5UaW1lIjoiRnJpIE1hciAyOSAxMDoxODo0OCBDU1QgMjAyNCIsInRva2VuVHlwZSI6ImFjY2Vzc1Rva2VuIn0.EY3vj_eKASfBFhR9dqnimjWYZk2m-L3uiQVFTIY-Cf4
+① 先在boss端注册司机 ->司机获取验证码 -> 司机登录校验验证码（登录） ✔
+
+② 司机出车 ✔  就是改变某个司机的出车状态  -> 司机上传自己的当前位置 ✔
+
+③ 根据司机手机号查询司机以及其对应的车辆的关系 ✔
+
+④ 司机去接乘客 ✔ -> 司机到达乘客起点 ✔ -> 乘客上车，行程开始 ✔  -> 司机在行驶的过程中，不断上传轨迹点 ✔
+116.317949,39.896654
+116.313486,39.895995
+116.310567,39.897181
+116.310224,39.909691
+116.310224,39.915484
+116.310224,39.917196
+116.310224,39.920224
+116.309709,39.922989
+
+⑤ 乘客下车 ✔
+
+⑥ 司机发起收款（乘客端模拟界面收到收款页面提示） ✔
+
+⑦
+
+-------------------------------------------------------------------
+
+boss端
+① 添加司机 -> 添加车辆（保证添加的车牌号不重复） -> 绑定车辆和司机 ✔
+
+-------------------------------------------------------------------
+订单号：1589441348365479983
+
+

@@ -1,0 +1,42 @@
+#这里面的配置已经加载到nacos的配置中心里面去了
+
+spring:
+  datasource:
+    driver-class-name: ${db.driver-class-name}
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+
+
+#server:
+#  port: 8083
+#
+##数据库配置
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/service-passenger-user?characterEncoding=utf-8&serverTimezone=GMT%2B8
+#    username: root
+#    password: 106331
+#  cloud:
+#    #配置nacos
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#  #配置服务名
+#  application:
+#    name: service-passenger-user
+#logging:
+#  level:
+#    root: info
+#
+##配置mybatis-plus
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  mapper-locations: classpath:mapper/*.xml
+#  global-config:
+#    db-config:
+#      id-type: auto
+
+application-ceshi: ${ceshi}

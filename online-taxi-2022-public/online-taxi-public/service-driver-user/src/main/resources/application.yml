@@ -1,0 +1,41 @@
+server:
+  port: 8086
+#配置服务名
+spring:
+  application:
+    name: service-driver-user
+#配置数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 106331
+    url: jdbc:mysql://localhost:3306/service-driver-user?characterEncoding=utf-8&serverTimezone=GMT%2B8
+#配置nacos，将服务注册到nacos中去
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #服务注册到nacos中
+    sentinel:
+      transport:
+        dashboard: localhost:9091  #设置sentinel控制台的ip和端口地址
+      web-context-unify: false #将链路的多层级目录进行收敛，放到一级目录去，使链路限流生效
+
+#配置mybatis-plus
+mybatis-plus:
+  type-aliases-package: com.mashibing.servicedriveruser.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+
+seata:
+  service:
+    vgroup-mapping:
+      my_tx: seata-tc
+    grouplist:
+      #    grouplist.seata-tc: 127.0.0.1:8091;127.0.0.1:8092;127.0.0.1:8093
+      seata-tc: 127.0.0.1:8091
+  tx-service-group: my_tx

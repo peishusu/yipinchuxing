@@ -1,0 +1,24 @@
+#服务注册到nacos中
+spring:
+  cloud:
+    nacos:
+      config: #配置中心
+        server-addr: 127.0.0.1:8848
+        namespace: devId  #命名空间的Id
+        file-extension: yaml
+  application:
+    name: service-passenger-user
+  profiles:
+    active: dev  #命名空间的名称
+
+
+# 在java_home中的目录：D:\Java\jdk1.8.0_291\jre\lib\security，检查是否有这两个文件：
+#  US_export_policy.jar,local_policy.jar
+# 这2个文件用于加解密的情况下
+jasypt:
+  encryptor:
+    # 添加的盐
+    password: mysalt1
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+# 默认是根据 (application.name)-(profiles.active).(file-extension)

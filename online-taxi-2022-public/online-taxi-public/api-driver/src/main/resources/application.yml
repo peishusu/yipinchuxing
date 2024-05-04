@@ -1,0 +1,31 @@
+server:
+  port: 8088
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  application:
+    name: api-driver
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    password: 106331
+
+logging:
+  level:
+    root: info
+
+seata:
+  service:
+    vgroup-mapping:
+      my_tx: seata-tc
+    grouplist:
+      #    grouplist.seata-tc: 127.0.0.1:8091;127.0.0.1:8092;127.0.0.1:8093
+      seata-tc: 127.0.0.1:8091
+  tx-service-group: my_tx
+

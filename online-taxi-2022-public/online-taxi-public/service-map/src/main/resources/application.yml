@@ -1,0 +1,31 @@
+server:
+  port: 8085
+
+#配置nacos
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #配置服务提供者
+    sentinel:
+      transport:
+        dashboard: localhost:9091  #集成sentinel核心库
+  application:
+    name: service-map
+#配置数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 106331
+    url: jdbc:mysql://localhost:3306/service-map?characterEncoding=utf-8&serverTimezone=GMT%2B8
+
+
+#设置访问高德地图api的key
+aMap:
+  key: cc312500ddf7007c278c49f6cf5dcd00
+  sid: 1023213
+
+#配置Slf4j的级别
+logging:
+  level:
+    root: info

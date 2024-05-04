@@ -1,0 +1,18 @@
+server:
+  port: 10001
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes: # 路由集合
+        - id : baidu # 路由的唯一名称（保证唯一就行，随便写）
+          uri: http://www.baidu.com  # 路由的目标地址
+          predicates:
+            # 目标系统的 url 中 存在的 地址，而不是本项目中存在的地址
+            - Path= /s
+

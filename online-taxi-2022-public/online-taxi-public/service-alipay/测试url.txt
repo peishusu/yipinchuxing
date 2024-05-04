@@ -1,0 +1,20 @@
+http://localhost:9001/alipay/pay?subject=车费1&outTradeNo=1001&totalAmount=100
+
+
+
+商家信息
+商户账号qtgurm2348@sandbox.com
+登录密码111111
+商户PID2088721032672163
+账户余额1000100.00
+
+
+买家信息
+买家账号iwafwu7226@sandbox.com
+登录密码 111111
+支付密码 111111
+用户UID2088722032672171
+用户名称iwafwu7226
+证件类型IDENTITY_CARD
+证件账号676193198504263783
+账户余额999900.00
